@@ -12,9 +12,9 @@ pipeline {
                 script {
                         dir ('k8s') {
                         sh """
-                        cat app-deploy.yaml
-                        sed -i 's/argocicd.*/argocicd:${BUILD_NUMBER}/g' app-deploy.yaml  
-                        cat app-deploy.yaml
+                        cat app-deploy.yml
+                        sed -i 's/argocicd.*/argocicd:${BUILD_NUMBER}/g' app-deploy.yml
+                        cat app-deploy.yml
                         """
                     }
                 }
