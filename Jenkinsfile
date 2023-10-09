@@ -34,9 +34,8 @@ pipeline {
                         git add .
                         git commit -m "update app-deploy"
                         """
-                        withCredentials([gitUsernamePassword(credentialsId: 'git-creds', gitToolName: 'Default')])
-                            {
-                           sh "git push origin HEAD:main" 
+                        withCredentials([string(credentialsId: 'git-creds', variable: 'GIT_TOKEN')]) {
+                             sh "git push origin HEAD:main"
                         }
                     }
                 }
